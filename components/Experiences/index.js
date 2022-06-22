@@ -1,4 +1,4 @@
-import { HStack, Img, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
+import { HStack, Img, Link, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
 
 export default function Experiences({ py, experiences }) {
 	return (
@@ -25,12 +25,14 @@ function Job({ job }) {
 	return (
 		<HStack>
 			<VStack>
-				<Img
-					htmlHeight={jobSizes.logo}
-					htmlWidth={jobSizes.logo}
-					src={job.logo.url}
-					alt={`${job.company} Logo`}
-				/>
+				<Link href={job.url} target="_blank">
+					<Img
+						htmlHeight={jobSizes.logo}
+						htmlWidth={jobSizes.logo}
+						src={job.logo.url}
+						alt={`${job.company} Logo`}
+					/>
+				</Link>
 			</VStack>
 			<VStack w="full" minW="80%" alignItems="flex-start" pl={jobSizes.plInfo}>
 				<Text fontWeight="bold" fontSize={jobSizes.position}>

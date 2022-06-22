@@ -12,7 +12,7 @@ export default function Layout(props) {
 	})
 	return (
 		<Box bg="linen" w="100%" display="flex" justifyContent="center">
-			<VStack w={{ base: 'lg', md: '2xl' }} minH="100vh" h="400vh" my={myVariant} mx={mxVariant}>
+			<VStack w={{ base: 'lg', md: '2xl' }} minH="100vh" my={myVariant} mx={mxVariant}>
 				{props.children}
 			</VStack>
 		</Box>

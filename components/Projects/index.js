@@ -90,7 +90,7 @@ function Project({ project }) {
 						{project.name}
 					</Text>
 				</HStack>
-				<HStack w="25%">
+				<HStack w="25%" justifyContent="flex-end">
 					<State state={project.project_status} fontSize={repositorySizes.stateFont} />
 				</HStack>
 			</HStack>
