@@ -2,12 +2,24 @@ import { useBreakpointValue } from '@chakra-ui/react'
 import { colors } from '../../theme'
 
 export default function Logo() {
-	const widthVariant = useBreakpointValue({ base: '7rem', md: '10rem', xl: '12rem' })
-	const heightVariant = useBreakpointValue({ base: '3.5rem', md: '5rem', xl: '6rem' })
+	const sizeVariant = useBreakpointValue({
+		base: {
+			width: '128px',
+			height: '64px',
+		},
+		md: {
+			width: '160px',
+			height: '96px',
+		},
+		xl: {
+			width: '192px',
+			height: '128px',
+		},
+	})
 	return (
 		<svg
-			width={widthVariant}
-			height={heightVariant}
+			width={sizeVariant.width}
+			height={sizeVariant.height}
 			viewBox="0 0 367 61"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"

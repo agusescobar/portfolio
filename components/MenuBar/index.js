@@ -4,7 +4,7 @@ import { colors } from '../../theme'
 
 export default function MenuBar({ isOpen, onToggle }) {
 	const sizeVariant = useBreakpointValue({
-		base: '1rem',
+		base: '16px',
 		md: null,
 		lg: null,
 		xl: null,

@@ -1,9 +1,12 @@
 import { useBreakpointValue } from '@chakra-ui/react'
+import { GraphQLClient } from 'graphql-request'
 import About from '@components/About'
 import Experiences from '@components/Experiences'
 import Header from '@components/Header'
 import Layout from '@components/Layout'
 import Projects from '@components/Projects'
+
+import { GetAllProjects, GetAllJobs } from '../utils'
 
 export default function Index({ projects = [], experiences = [] }) {
 	const paddingY = useBreakpointValue({
@@ -21,46 +24,22 @@ export default function Index({ projects = [], experiences = [] }) {
 }
 
 export async function getStaticProps(context) {
-	const headers = new Headers()
-	headers.append('Authorization', `Bearer ${process.env.NOTION_SECRET}`)
-	headers.append('Notion-Version', '2022-02-22')
-
-	const body = JSON.stringify({
-		sorts: [
-			{
-				property: 'Priority',
-				direction: 'ascending',
+	const graphCMS = new GraphQLClient(
+		`https://api-us-west-2.graphcms.com/v2/${process.env.GRAPH_CMS_ID}/master`,
+		{
+			headers: {
+				Authorization: `Bearer ${process.env.GRAPH_CMS_TOKEN}`,
 			},
-		],
-	})
-
-	const requestOptions = {
-		method: 'POST',
-		headers,
-		body,
-		redirect: 'follow',
-	}
-
-	const projects = await fetch(getNotionApiUrl('352b52d231cb432f9cf71b2b41c8247f'), requestOptions)
-		.then((response) => response.json())
-		.then((result) => result.results)
-
-	const experiences = await fetch(
-		getNotionApiUrl('63d392d2cd8b432fa66d87819269e323'),
-		requestOptions
+		}
 	)
-		.then((response) => response.json())
-		.then((result) => result.results)
+
+	const { projects } = await graphCMS.request(GetAllProjects)
+	const { experiences } = await graphCMS.request(GetAllJobs)
 
 	return {
 		props: {
 			projects,
 			experiences,
 		},
-		revalidate: 4,
 	}
-}
-
-function getNotionApiUrl(databaseId) {
-	return `https://api.notion.com/v1/databases/${databaseId}/query`
 }

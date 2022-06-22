@@ -24,8 +24,8 @@ export default function About({ py }) {
 
 function ContactButtons() {
 	const sizeVariant = useBreakpointValue({
-		base: '1.5rem',
-		md: '2rem',
+		base: '24px',
+		md: '32px',
 	})
 
 	return (

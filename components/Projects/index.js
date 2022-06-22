@@ -52,13 +52,12 @@ export default function Projects({ projects = [], py }) {
 }
 
 function Project({ project }) {
-	const { properties } = project
 	const repositorySizes = useBreakpointValue({
 		base: {
 			name: 'sm',
 			description: 'xs',
 			marginY: '0.5',
-			repositoryLogo: '1rem',
+			repositoryLogo: '16px',
 			spacing: '1rem',
 			stateFont: '0.5rem',
 			technologies: '0.6rem',
@@ -67,7 +66,7 @@ function Project({ project }) {
 			name: 'md',
 			description: 'sm',
 			marginY: '2',
-			repositoryLogo: '1.5rem',
+			repositoryLogo: '24px',
 			spacing: '1rem',
 			stateFont: '0.6rem',
 			technologies: '0.8rem',
@@ -88,26 +87,26 @@ function Project({ project }) {
 				<HStack w="75%">
 					<RepositoryLogo size={repositorySizes.repositoryLogo} />
 					<Text fontSize={repositorySizes.name} color="jet" fontWeight="bold">
-						{properties.Name.title[0].plain_text}
+						{project.name}
 					</Text>
 				</HStack>
 				<HStack w="25%">
-					<State state={properties.State.select.name} fontSize={repositorySizes.stateFont} />
+					<State state={project.project_status} fontSize={repositorySizes.stateFont} />
 				</HStack>
 			</HStack>
 			<HStack w="85%" h="35%">
 				<Text fontSize={repositorySizes.description} color="jet">
-					{properties.Description.rich_text[0].plain_text}
+					{project.description}
 				</Text>
 			</HStack>
 			<HStack w="80%" h="25%" justifyContent={'space-between'}>
 				<Text fontSize={repositorySizes.technologies} fontWeight="semibold" w="60%">
-					Hecho con: {properties.Technologies.rich_text[0].plain_text}
+					Hecho con: {project.technologies}
 				</Text>
 				<Button
 					as="a"
 					variant="link"
-					href={properties.Url.url}
+					href={project.url}
 					target="_blank"
 					color="lavenderFloral"
 					w="10%"
@@ -123,12 +122,24 @@ function Project({ project }) {
 }
 
 function State({ state, fontSize }) {
-	const colorScheme = state === 'available' ? 'green' : 'red'
+	const colorScheme = getColorScheme(state)
+
 	return (
 		<Badge fontSize={fontSize} variant="subtle" colorScheme={colorScheme}>
 			{state}
 		</Badge>
 	)
+}
+
+function getColorScheme(state) {
+	switch (state) {
+		case 'available':
+			return 'green'
+		case 'deprecated':
+			return 'red'
+		case 'wip':
+			return 'yellow'
+	}
 }
 
 function RepositoryLogo({ size }) {
@@ -151,7 +162,7 @@ function RepositoryLogo({ size }) {
 
 function ShareIcon({ color }) {
 	return (
-		<svg height={'0.8rem'} viewBox="0 0 24 24" width={'0.8rem'} xmlns="http://www.w3.org/2000/svg">
+		<svg height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg">
 			<path d="M19 13v10H1V5h10m3-4h9v9m-13 4L23 1z" fill="none" stroke={color} strokeWidth={2} />
 		</svg>
 	)

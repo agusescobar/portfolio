@@ -19,35 +19,35 @@ export default function Experiences({ py, experiences }) {
 
 function Job({ job }) {
 	const jobSizes = useBreakpointValue({
-		base: { logo: '4rem', plInfo: '2.5rem', position: 'md', name: 'sm', date: 'sm' },
-		md: { logo: '5rem', plInfo: '5rem', position: 'lg', name: 'md', date: 'md' },
+		base: { logo: '48', plInfo: '2.5rem', position: 'md', name: 'sm', date: 'sm' },
+		md: { logo: '64', plInfo: '5rem', position: 'lg', name: 'md', date: 'md' },
 	})
-	const { properties } = job
 	return (
 		<HStack>
 			<VStack>
 				<Img
-					boxSize={jobSizes.logo}
-					src={properties.Logo.files[0].file.url}
-					alt={`${properties.Name.title[0].plain_text} Logo`}
+					htmlHeight={jobSizes.logo}
+					htmlWidth={jobSizes.logo}
+					src={job.logo.url}
+					alt={`${job.company} Logo`}
 				/>
 			</VStack>
-			<VStack w="full" maxW="80%" alignItems="flex-start" pl={jobSizes.plInfo}>
+			<VStack w="full" minW="80%" alignItems="flex-start" pl={jobSizes.plInfo}>
 				<Text fontWeight="bold" fontSize={jobSizes.position}>
-					{properties.Position.rich_text[0].plain_text}
+					{job.position}
 				</Text>
 				<Text
 					as="a"
-					href={properties.Url.url}
+					href={job.url}
 					target="_blank"
 					fontWeight="semibold"
 					fontSize={jobSizes.name}
 					mt="0 !important"
 				>
-					{properties.Name.title[0].plain_text}
+					{job.company}
 				</Text>
 				<Text fontWeight="normal" fontSize={jobSizes.date} mt="0 !important">
-					{properties.Date.rich_text[0].plain_text}
+					{job.time}
 				</Text>
 			</VStack>
 		</HStack>
