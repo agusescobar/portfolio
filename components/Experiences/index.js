@@ -9,8 +9,8 @@ export default function Experiences({ py, experiences }) {
 				</Text>
 			</HStack>
 			<VStack w="80%" alignItems="flex-start" spacing="6">
-				{experiences.map((job) => {
-					return <Job job={job} key={job.id} />
+				{experiences.map((job, index) => {
+					return <Job job={job} key={index} />
 				})}
 			</VStack>
 		</VStack>

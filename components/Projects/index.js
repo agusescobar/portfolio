@@ -27,7 +27,7 @@ export default function Projects({ projects = [], py }) {
 				{projects.map((project, index) => {
 					if (index < dynamicProperties.maxOfProjects) {
 						return (
-							<WrapItem w={dynamicProperties.wrapItemWeight} key={project.id}>
+							<WrapItem w={dynamicProperties.wrapItemWeight} key={index}>
 								<Project project={project} />
 							</WrapItem>
 						)
