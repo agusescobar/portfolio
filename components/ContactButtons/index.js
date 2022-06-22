@@ -1,5 +1,5 @@
 import { Box, HStack, useBreakpointValue } from '@chakra-ui/react'
-import { colors } from '../../theme'
+import { colors } from 'theme'
 
 export default function ContactButtons({ w }) {
 	const sizeVariant = useBreakpointValue({

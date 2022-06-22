@@ -1,6 +1,6 @@
 import { Box, HStack, useBreakpointValue } from '@chakra-ui/react'
 import HeaderButtons from '@components/HeaderButtons'
-import { colors } from '../../theme'
+import { colors } from 'theme'
 
 export default function MenuBar({ isOpen, onToggle }) {
 	const sizeVariant = useBreakpointValue({

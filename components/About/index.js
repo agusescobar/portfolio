@@ -1,5 +1,4 @@
-import { Box, HStack, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
-import { colors } from '../../theme'
+import { HStack, Text, VStack } from '@chakra-ui/react'
 import ContactButtons from '@components/ContactButtons'
 
 export default function About({ py }) {

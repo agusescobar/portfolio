@@ -1,6 +1,6 @@
 import { useBreakpointValue } from '@chakra-ui/react'
 import { GraphQLClient } from 'graphql-request'
-import { GetAllProjects, GetAllJobs } from '../utils'
+import { GetAllProjects, GetAllJobs } from 'utils'
 import About from '@components/About'
 import Experiences from '@components/Experiences'
 import Footer from '@components/Footer'

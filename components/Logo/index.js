@@ -1,5 +1,6 @@
 import { useBreakpointValue } from '@chakra-ui/react'
-import { colors } from '../../theme'
+import { goToTop } from 'utils'
+import { colors } from 'theme'
 
 export default function Logo() {
 	const sizeVariant = useBreakpointValue({
@@ -20,6 +21,8 @@ export default function Logo() {
 		<svg
 			width={sizeVariant.width}
 			height={sizeVariant.height}
+			onClick={goToTop}
+			cursor="pointer"
 			viewBox="0 0 367 61"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"

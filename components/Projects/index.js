@@ -8,7 +8,7 @@ import {
 	Wrap,
 	WrapItem,
 } from '@chakra-ui/react'
-import { colors } from '../../theme'
+import { colors } from 'theme'
 
 export default function Projects({ projects = [], py }) {
 	const dynamicProperties = useBreakpointValue({
