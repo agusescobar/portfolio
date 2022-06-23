@@ -14,6 +14,9 @@ export default function About({ py }) {
 						<b> Mercado Libre </b>
 					</a>
 				</Text>
+				<Text fontSize={{ base: 'xs', md: 'lg' }} fontWeight="light">
+					De Santa Fe, Argentina
+				</Text>
 			</VStack>
 			<HStack alignItems="start" w="80%">
 				<ContactButtons w="25%" />
