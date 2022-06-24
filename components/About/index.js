@@ -14,8 +14,9 @@ export default function About({ py }) {
 						<b> Mercado Libre </b>
 					</a>
 				</Text>
-				<Text fontSize={{ base: 'xs', md: 'lg' }} fontWeight="light">
-					De Santa Fe, Argentina
+				<Text fontSize={{ base: 'sm', md: 'md' }} fontWeight="normal">
+					Soy de Santa Fe, Argentina y tengo experiencia en Java, Golang, Javascript, Next.js,
+					React, Node.js y tambien interesado en aprender nuevos lenguajes y tecnologias :D
 				</Text>
 			</VStack>
 			<HStack alignItems="start" w="80%">
