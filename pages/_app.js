@@ -9,12 +9,12 @@ function MyApp({ Component, pageProps }) {
 			<Head>
 				<title>Agustin Escobar</title>
 				<link rel="icon" href="/icon.ico" />
-				<Script
+				<script
 					async
 					defer
 					data-website-id="62f4f8f2-9b43-4286-b9c2-3c512bf7aa6c"
 					src="https://myanalytics.agusescobar.com/umami.js"
-				></Script>
+				></script>
 			</Head>
 			<Component {...pageProps} />
 		</ChakraProvider>
