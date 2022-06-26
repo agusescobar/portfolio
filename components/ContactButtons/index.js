@@ -18,7 +18,12 @@ export default function ContactButtons({ w }) {
 
 const LinkedIn = ({ sizeVariant }) => {
 	return (
-		<Box as="a" href="https://www.linkedin.com/in/agusescobar/" target="_blank">
+		<Box
+			as="a"
+			href="https://www.linkedin.com/in/agusescobar/"
+			target="_blank"
+			class="umami--click--linkedin-access"
+		>
 			<svg
 				fill="none"
 				height={sizeVariant}
