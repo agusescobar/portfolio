@@ -1,5 +1,6 @@
 import { Box, HStack, useBreakpointValue } from '@chakra-ui/react'
 import { colors } from 'theme'
+import { getUmamiClassEventName } from 'utils'
 
 export default function ContactButtons({ w }) {
 	const sizeVariant = useBreakpointValue({
@@ -22,7 +23,7 @@ const LinkedIn = ({ sizeVariant }) => {
 			as="a"
 			href="https://www.linkedin.com/in/agusescobar/"
 			target="_blank"
-			class="umami--click--linkedin-access"
+			className={getUmamiClassEventName('linkedin')}
 		>
 			<svg
 				fill="none"
@@ -43,7 +44,12 @@ const LinkedIn = ({ sizeVariant }) => {
 }
 const GitHub = ({ sizeVariant }) => {
 	return (
-		<Box as="a" href="https://github.com/agusfesc" target="_blank">
+		<Box
+			as="a"
+			href="https://github.com/agusfesc"
+			target="_blank"
+			className={getUmamiClassEventName('github-access')}
+		>
 			<svg
 				height={sizeVariant}
 				viewBox="0 0 16 16"
@@ -64,7 +70,7 @@ const GitHub = ({ sizeVariant }) => {
 
 const Email = ({ sizeVariant }) => {
 	return (
-		<Box as="a" href="mailto:agusfranesc@gmail.com">
+		<Box as="a" href="mailto:agusfranesc@gmail.com" className={getUmamiClassEventName('email')}>
 			<svg
 				height={sizeVariant}
 				viewBox="0 0 33 32"
