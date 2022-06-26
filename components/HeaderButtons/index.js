@@ -10,7 +10,7 @@ export default function HeaderButtons({ direction, buttonProps, ...props }) {
 	)
 }
 
-function HeaderButton({ text, link = null, ...props }) {
+function HeaderButton({ text, link, ...props }) {
 	return (
 		<Button as="a" variant="link" colorScheme="jet" href={link} {...props}>
 			{text}
