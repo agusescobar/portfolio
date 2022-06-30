@@ -48,7 +48,7 @@ const GitHub = ({ sizeVariant }) => {
 			as="a"
 			href="https://github.com/agusfesc"
 			target="_blank"
-			className={getUmamiClassEventName('github-access')}
+			className={getUmamiClassEventName('github')}
 		>
 			<svg
 				height={sizeVariant}
