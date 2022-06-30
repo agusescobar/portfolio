@@ -7,6 +7,10 @@ export const goToTop = () => {
 	})
 }
 
+export const getUmamiClassEventName = (eventName) => {
+	return `umami--click--${eventName}`
+}
+
 export const GetAllProjects = gql`
 	{
 		projects(orderBy: priority_ASC) {

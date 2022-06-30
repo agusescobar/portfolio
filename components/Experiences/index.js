@@ -1,4 +1,5 @@
 import { HStack, Img, Link, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
+import { getUmamiClassEventName } from 'utils'
 
 export default function Experiences({ py, experiences }) {
 	return (
@@ -22,6 +23,7 @@ function Job({ job }) {
 		base: { logo: '48', plInfo: '2.5rem', position: 'md', name: 'sm', date: 'sm' },
 		md: { logo: '64', plInfo: '5rem', position: 'lg', name: 'md', date: 'md' },
 	})
+	const companyNameForTrack = job.company.replace(/ /g, '')
 	return (
 		<HStack>
 			<VStack>
@@ -31,6 +33,7 @@ function Job({ job }) {
 						htmlWidth={jobSizes.logo}
 						src={job.logo.url}
 						alt={`${job.company} Logo`}
+						className={getUmamiClassEventName(`experience-logo-${companyNameForTrack}`)}
 					/>
 				</Link>
 			</VStack>
@@ -45,6 +48,7 @@ function Job({ job }) {
 					fontWeight="semibold"
 					fontSize={jobSizes.name}
 					mt="0 !important"
+					className={getUmamiClassEventName(`experience-site-${companyNameForTrack}`)}
 				>
 					{job.company}
 				</Text>

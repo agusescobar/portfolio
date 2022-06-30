@@ -9,6 +9,7 @@ import {
 	WrapItem,
 } from '@chakra-ui/react'
 import { colors } from 'theme'
+import { getUmamiClassEventName } from 'utils'
 
 export default function Projects({ projects = [], py }) {
 	const dynamicProperties = useBreakpointValue({
@@ -43,6 +44,7 @@ export default function Projects({ projects = [], py }) {
 					colorScheme="black"
 					variant="outline"
 					rightIcon={<ShareIcon color={colors.jet} />}
+					className={getUmamiClassEventName('github-repositories')}
 				>
 					Ver más
 				</Button>
@@ -113,6 +115,7 @@ function Project({ project }) {
 					fontWeight="normal"
 					fontSize={'sm'}
 					rightIcon={<ShareIcon color={colors.lavenderFloral} />}
+					className={getUmamiClassEventName(`github-project-${project.name}`)}
 				>
 					GitHub
 				</Button>
